@@ -1,0 +1,52 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-size: 62.5%;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-size: 1.6rem;
+  width: 100%;
+  height: 100%;
+}
+
+.kanbanBoards {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 80%;
+  height: 100%;
+  margin: 3rem auto 3rem auto;
+  border: 1px solid black;
+}
+.kanbanBoards .board {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 25%;
+  height: 80%;
+  border: 1px solid blue;
+}
+.kanbanBoards .board .kanbanBoard {
+  width: 100%;
+}
+.kanbanBoards .board .board__item {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  height: auto;
+  margin: 1rem auto;
+  border: 1px solid red;
+}
+.kanbanBoards .board .board__item p, .kanbanBoards .board .board__item a {
+  padding: 1rem;
+  text-decoration: none;
+}
+
+/*# sourceMappingURL=styles.css.map */
