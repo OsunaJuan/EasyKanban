@@ -12,6 +12,30 @@ export class BOARD{
         this.#_interface = new INTERFACE(inter)
     }    
 
+    
+    moveItem(){
+       let itemID = this.dataset.id
+       console.dir(this)
+    //    let item = this.#_items_list.find(elements => elements.id === itemID)
+
+
+
+
+
+
+        // item.state = this.#_nextState.boardTile
+        // this.#_nextState.items_list = item
+        // this.items_list.splice(this.#_items_list.indexOf(item), 1)
+        // this.#_interface.clearItems()
+        // this.#_interface.displayItems(this.#_items_list,this.moveItem)        
+    }
+
+    addEL(){
+        let nextButton = document.querySelectorAll("#" + this.#_boardTitle + " .nextButton")
+        let closeButton = document.querySelectorAll("#" + this.#_boardTitle + " .closeButton")
+        nextButton.forEach(item => item.addEventListener("click",this.moveItem))        
+    }
+    
     get boardTile(){
         return this.#_boardTitle
     }
@@ -34,22 +58,6 @@ export class BOARD{
         }       
         
     }
-
-
-    moveItem(item){
-        item.state = this.#_nextState.boardTile
-        this.#_nextState.items_list = item
-        this.items_list.splice(this.#_items_list.indexOf(item), 1)
-        this.#_interface.clearItems()
-        this.#_interface.displayItems(this.#_items_list)        
-    }
-
-    addEL(){
-        let nextButton = document.querySelectorAll(".nextButton")
-        let closeButton = document.querySelectorAll(".closeButton")
-        console.log(nextButton, closeButton)
-    }
-
 
 
 }

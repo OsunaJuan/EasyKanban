@@ -5,11 +5,11 @@ export class INTERFACE{
     }
 
     displayItems(items){
-        console.log()
-        items.forEach((item)=>{
+        items.forEach((item) =>{
+
             this.#_html_element.innerHTML +=`<div class="board__item">
                                                 <p>${item.title}</p>
-                                                <a class = "nextButton" href="javascript:void(0)">&#8680;</a>
+                                                <a class = "nextButton" data-id=${item.id} href="javascript:void(0)" ">&#8680;</a>
                                                 <a class = "closeButton" href="javascript:void(0)">&#10005;</a>
                                              </div>`
         }) 

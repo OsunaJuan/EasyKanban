@@ -1,7 +1,9 @@
 export class ITEM{
     #_title
     #_state
-    constructor({title, state ="TODO"}){
+    #_id
+    constructor({title, state ="TODO",id}){
+            this.#_id = id
             this.#_title = title,
             this.#_state = state
     }
@@ -20,6 +22,14 @@ export class ITEM{
 
     get state(){
         return this.#_state
+    }
+
+    set id(int){
+        this.#_id = int
+    }
+
+    get id(){
+        return this.#_id
     }
 
 
