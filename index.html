@@ -26,6 +26,36 @@
         </article>
     </section>
 
+    <section class="modal">
+
+        <div class="modal__closeBttn">
+            <a href">&#10005;</a>
+        </div>
+
+        <form class="modal__form">
+
+            <label for="itemTitle" class="form__label">
+                Añade el titulo de la nueva tarea:
+                <textarea type="text" id="itemTitle" class="form__TextInput" rows="3" ></textarea>
+            </label>
+
+            <p>Selecciona a cual Board lo quieres añadir</p>
+
+            <section class="form__BoardSelector">
+                <a class="BoardSelector__bttn" href="javascript:void(0)">Todo</a>
+                <a class="BoardSelector__bttn" href="javascript:void(0)">Doing</button>
+                <a class="BoardSelector__bttn" href="javascript:void(0)">Done</a>
+            </section>
+
+            <div class="form__OkCancelBttn">
+                <a class="okBttn bttn" href="javascript:void(0)">Aceptar</a>
+                <a class="cancelbttn bttn" href="javascript:void(0)">Cancelar</a>
+            </div>
+
+        </form>
+
+    </section>
+
     
     <script src="JS/main.mjs" type="module"></script>    
 </body>
