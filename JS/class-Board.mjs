@@ -22,28 +22,41 @@ export class BOARD{
         return this.#_items_list
     }
 
-    //Funcion que añade los elementos al array de elementos TODO, cada vez que se ejecuta añade el elemento  y refresca el HTML
+    //Funcion que añade los elementos al array de elementos en el listado, cada vez que se ejecuta o añade un elemento refresca el HTML
     set items_list(elements){
         if(elements instanceof ITEM){
             this.items_list.push(elements)
             this.#_interface.clearItems()
             this.#_interface.displayItems(this.#_items_list)
-            this.addEL()
-
         }else{
             throw console.error("Elemento no es del tipo ITEM");
-        }       
+        }     
+        
+        this.addEL()
         
     }
 
     moveItem(id){
+        console.log(this.items_list)
         let item = this.#_items_list.find(element => element.id == id)
-        console.log(item)
+        let itemIndex =  this.#_items_list.findIndex(element => element.id == id)
+        console.log(itemIndex)
+
         item.state = this.#_nextState.boardTitle
+        this.items_list.splice(itemIndex, 1)
+
         this.#_nextState.items_list = item
-        this.items_list.splice(this.#_items_list.indexOf(item), 1)
         this.#_interface.clearItems()
-        this.#_interface.displayItems(this.#_items_list,this.moveItem)  
+        this.#_interface.displayItems(this.#_items_list)  
+        this.addEL()
+    }
+
+    deleteItem(id){ 
+        let itemIndex = this.#_items_list.findIndex(element => element.id == id)
+        console.log(itemIndex,id)
+        this.#_items_list.splice(itemIndex,1)
+        this.#_interface.clearItems()
+        this.#_interface.displayItems(this.#_items_list)  
         this.addEL()
     }
 
@@ -53,6 +66,9 @@ export class BOARD{
         nextButton.forEach(item =>{
             item.addEventListener("click",this.moveItem.bind(this,item.dataset.id))       
         } )
+        closeButton.forEach(item =>{      
+            item.addEventListener("click",this.deleteItem.bind(this,item.dataset.id))
+        })
     }
 
 

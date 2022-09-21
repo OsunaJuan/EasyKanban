@@ -20,9 +20,6 @@ todoBoard.items_list = c;
 
 
 
-todoBoard.addEL()
-
-
 
 
 
