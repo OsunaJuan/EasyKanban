@@ -37,23 +37,25 @@ export class BOARD{
     }
 
     moveItem(id){
-        console.log(this.items_list)
         let item = this.#_items_list.find(element => element.id == id)
         let itemIndex =  this.#_items_list.findIndex(element => element.id == id)
-        console.log(itemIndex)
 
-        item.state = this.#_nextState.boardTitle
-        this.items_list.splice(itemIndex, 1)
-
-        this.#_nextState.items_list = item
-        this.#_interface.clearItems()
-        this.#_interface.displayItems(this.#_items_list)  
-        this.addEL()
+        if( this.#_nextState != null){
+            item.state = this.#_nextState.boardTitle
+            this.items_list.splice(itemIndex, 1)    
+            this.#_nextState.items_list = item
+            this.#_interface.clearItems()
+            this.#_interface.displayItems(this.#_items_list)  
+            this.addEL()
+        }else if(this.#_nextState == null){
+            this.deleteItem(id)
+        }
+       
+       
     }
 
     deleteItem(id){ 
         let itemIndex = this.#_items_list.findIndex(element => element.id == id)
-        console.log(itemIndex,id)
         this.#_items_list.splice(itemIndex,1)
         this.#_interface.clearItems()
         this.#_interface.displayItems(this.#_items_list)  
