@@ -38,6 +38,15 @@ a {
   height: 80%;
   border: 1px solid blue;
 }
+.kanbanBoards .board .board__title {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+.kanbanBoards .board .board__title .board__Add {
+  font-size: 2.5rem;
+  font-weight: 900;
+}
 .kanbanBoards .board .kanbanBoard {
   width: 100%;
 }
@@ -54,9 +63,27 @@ a {
   text-decoration: none;
 }
 
-.modal {
+.hidden {
+  display: none !important;
+}
+
+.modalContainer {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.modalContainer .modal {
   display: flex;
   flex-direction: column;
+  background-color: white;
   max-width: 400px;
   max-height: 300px;
   width: 100%;
@@ -64,47 +91,47 @@ a {
   border: 1px solid black;
   padding: 0.5rem;
 }
-.modal .modal__closeBttn {
+.modalContainer .modal .modal__closeBttn {
   display: flex;
   justify-content: end;
 }
-.modal .modal__closeBttn a {
+.modalContainer .modal .modal__closeBttn a {
   background-color: white;
   border: none;
 }
-.modal .modal__closeBttn a:hover {
+.modalContainer .modal .modal__closeBttn a:hover {
   cursor: pointer;
 }
-.modal .modal__form {
+.modalContainer .modal .modal__form {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.modal .modal__form .form__label {
+.modalContainer .modal .modal__form .form__label {
   display: flex;
   flex-direction: column;
 }
-.modal .modal__form .form__label textarea {
+.modalContainer .modal .modal__form .form__label textarea {
   resize: none;
 }
-.modal .form__BoardSelector {
+.modalContainer .modal .form__BoardSelector {
   display: flex;
   justify-content: space-evenly;
   width: 80%;
 }
-.modal .form__BoardSelector .BoardSelector__bttn {
+.modalContainer .modal .form__BoardSelector .BoardSelector__bttn {
   width: 30%;
   border: 1px solid black;
   text-align: center;
 }
-.modal .form__OkCancelBttn {
+.modalContainer .modal .form__OkCancelBttn {
   display: flex;
   justify-content: space-evenly;
   width: 70%;
   padding: 1rem;
 }
-.modal .form__OkCancelBttn .bttn {
+.modalContainer .modal .form__OkCancelBttn .bttn {
   width: 40%;
   text-align: center;
   border: 1px solid black;

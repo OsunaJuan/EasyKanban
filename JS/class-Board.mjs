@@ -26,6 +26,7 @@ export class BOARD{
     set items_list(elements){
         if(elements instanceof ITEM){
             this.items_list.push(elements)
+            console.log(this.#_interface)
             this.#_interface.clearItems()
             this.#_interface.displayItems(this.#_items_list)
         }else{

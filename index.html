@@ -11,50 +11,63 @@
 
     <section class="kanbanBoards">
         <article class="board">
-            <div class="board__title"><h2>TODO BOARD</h2></div>
-            <div class="kanbanBoard" id ="todoBoard"></div>
+            <div class="board__title">
+                <h2>TODO BOARD</h2>
+                <a href="javascript:void(0)" class="board__Add" data-boardId="0">&#43;</a>
+            </div>
+            
+            <div class="kanbanBoard" id ="todoBoard" ></div>
         </article>
 
         <article class="board">
-            <div class="board__title"><h2>DOING BOARD</h2></div>
-            <div class="kanbanBoard" id ="doingBoard"></div>
+            <div class="board__title">
+                <h2>DOING BOARD</h2>
+                <a href="javascript:void(0)" class="board__Add" data-boardId="1">&#43;</a>
+            </div>
+            <div class="kanbanBoard" id ="doingBoard" ></div>
         </article>
 
         <article class="board">
-            <div class="board__title"><h2>DONE BOARD</h2></div>
+            <div class="board__title">
+                <h2>DONE BOARD</h2>
+                <a href="javascript:void(0)" class="board__Add" data-boardId="2">&#43;</a>
+            </div>
             <div class="kanbanBoard" id ="doneBoard"></div>
         </article>
     </section>
 
-    <section class="modal">
+    <div class="modalContainer hidden">
+        <section class="modal">
 
-        <div class="modal__closeBttn">
-            <a href">&#10005;</a>
-        </div>
-
-        <form class="modal__form">
-
-            <label for="itemTitle" class="form__label">
-                Añade el titulo de la nueva tarea:
-                <textarea type="text" id="itemTitle" class="form__TextInput" rows="3"></textarea>
-            </label>
-
-            <p>Selecciona a cual Board lo quieres añadir</p>
-
-            <section class="form__BoardSelector">
-                <a class="BoardSelector__bttn" data-bttnid = "0" href="javascript:void(0)">Todo</a>
-                <a class="BoardSelector__bttn" data-bttnid = "1" href="javascript:void(0)">Doing</button>
-                <a class="BoardSelector__bttn" data-bttnid = "2" href="javascript:void(0)">Done</a>
-            </section>
-
-            <div class="form__OkCancelBttn">
-                <a class="okBttn bttn" href="javascript:void(0)">Aceptar</a>
-                <a class="cancelbttn bttn" href="javascript:void(0)">Cancelar</a>
+            <div class="modal__closeBttn">
+                <a href">&#10005;</a>
             </div>
-
-        </form>
-
-    </section>
+    
+            <form class="modal__form">
+    
+                <label for="itemTitle" class="form__label">
+                    Añade el titulo de la nueva tarea:
+                    <textarea type="text" id="itemTitle" class="form__TextInput" rows="3"></textarea>
+                </label>
+    
+                <p>Selecciona a cual Board lo quieres añadir</p>
+    
+                <section class="form__BoardSelector">
+                    <a class="BoardSelector__bttn" data-bttnid = "0" href="javascript:void(0)">Todo</a>
+                    <a class="BoardSelector__bttn" data-bttnid = "1" href="javascript:void(0)">Doing</button>
+                    <a class="BoardSelector__bttn" data-bttnid = "2" href="javascript:void(0)">Done</a>
+                </section>
+    
+                <div class="form__OkCancelBttn">
+                    <a class="okBttn bttn" href="javascript:void(0)">Aceptar</a>
+                    <a class="cancelbttn bttn" href="javascript:void(0)">Cancelar</a>
+                </div>
+    
+            </form>
+    
+        </section>
+    </div>
+    
 
     
     <script src="JS/main.mjs" type="module"></script>    

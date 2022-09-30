@@ -4,31 +4,45 @@ export class modal{
     #_interface;
     #_task;
     #_buttons;
+    #_addBttns;
     #_ok;
     #_cancel;
     #_boards;
     #_close;
-    constructor({interfaz,task,boardBttn,okBttn,cancelBttn,closeBttn,boards}) {
+    constructor({interfaz,task,boardBttn,addBttn,okBttn,cancelBttn,closeBttn,boards}) {
         this.activeBttn; 
         this.#_idCounter = 0;
         this.#_interface = interfaz;
         this.#_task = task;
-        this.#_buttons = Array.from(boardBttn); ;
+        this.#_buttons = Array.from(boardBttn); 
+        this.#_addBttns = Array.from(addBttn)
         this.#_ok = okBttn;
         this.#_cancel = cancelBttn;
         this.#_close = closeBttn;
         this.#_boards = boards;
+
+        this.#_interface.addEventListener("click",evento =>{
+            if(evento.target.matches(".modalContainer")){
+                this.ToggleModal({})
+            }
+        })
     }
 
     addEvents(){
         this.#_ok.addEventListener("click",this.createTask.bind(this,this.#_task))
-        this.#_cancel.addEventListener("click",this.closeModal.bind(this))
-        this.#_close.addEventListener("click",this.closeModal.bind(this))
+        this.#_cancel.addEventListener("click",this.ToggleModal.bind(this))
+        this.#_close.addEventListener("click",this.ToggleModal.bind(this))
+
         this.#_buttons.forEach(element => {
-            console.log()
+ 
             element.addEventListener("click",this.setActiveBttn.bind(this,element.dataset.bttnid
                 ))
         });
+
+        this.#_addBttns.forEach(element=>{
+            console.log()
+            element.addEventListener("click",this.ToggleModal.bind(this,{id:element.dataset.boardid}))
+        })
         
     }
 
@@ -37,7 +51,6 @@ export class modal{
     }
 
     createTask(taskTitle){
-        console.log(this.activeBttn)
         const tempITEM = new ITEM({title:taskTitle.value,state:"",id: this.#_idCounter})
         if(this.activeBttn == 0){
             tempITEM.state = "todoBoard"
@@ -51,13 +64,15 @@ export class modal{
             tempITEM.state = "todoBoard"
             this.#_boards[2].items_list = tempITEM
         }
- 
-        console.log(tempITEM)
 
         this.#_idCounter++
+
+        this.#_interface.classList.toggle("hidden")
     }
 
-    closeModal(){
+    ToggleModal({id}){
+        this.setActiveBttn(id)
+        this.#_interface.classList.toggle("hidden")
 
     }
 
